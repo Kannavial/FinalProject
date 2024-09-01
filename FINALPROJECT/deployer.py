@@ -111,7 +111,7 @@ def main(repo_url, name):
     configs = load_config('/Configs/Config.yaml')
     instanceIP = launch_ec2_instance(configs, name)
     connect_and_upload(instanceIP, configs['ec2'].get('key_name'), f"{name}_Clone", '/home/ec2-user')
-    os.rmdir(f"{_clone_dir}/{_clone_repo}")
+    os.rmdir(f"{_clone_dir}/{_clone_repo}") 
 
 if __name__ == "__main__":
     main()
