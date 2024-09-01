@@ -6,10 +6,8 @@ import zipfile
 import paramiko
 import sys
 
-_clone_dir = "/Clone_Dir"
-
 def clone_repo(repo_url, ec2Name):
-    clone_dir = os.mkdir(f"{_clone_dir}/{ec2Name}_Clone") 
+    clone_dir = os.mkdir(f"/{ec2Name}_Clone") 
     if not os.path.exists(clone_dir):
         os.makedirs(clone_dir)
     git.Repo.clone_from(repo_url, clone_dir)
@@ -32,7 +30,7 @@ def load_config(file_path):
 
 def launch_ec2_instance(config, ec2DeployName):
     session = boto3.Session(profile_name='deployerProfile')
-    ec2 = boto3.client('ec2')
+    ec2 = session.client('ec2')
 
     ami_id = config['ec2'].get('ami_id')
     instance_type = config['ec2'].get('instance_type')
