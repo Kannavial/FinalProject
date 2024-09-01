@@ -53,6 +53,7 @@ jobs:
         BRANCH_NAME: ${{ env.BRANCH_NAME }}
         SSH_KEY: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
         INSTANCE_IP: ${{ secrets.AWS_INSTANCE_IP }} 
+      if: github.event_name == 'pull_request'
       run: |
         echo "$SSH_KEY" > aws_key.pem
         chmod 600 aws_key.pem
