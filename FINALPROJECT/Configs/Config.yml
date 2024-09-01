@@ -1,4 +1,4 @@
-ec2:
+default:
   ami_id: 'ami-0abcdef1234567890'          # Replace with your AMI ID
   instance_type: 't2.micro'                # Replace with your instance type
   key_name: 'sanber-key'                  # Replace with your key pair name
