@@ -26,8 +26,8 @@ jobs:
         #Test
 
     - name: Set Up Git
+      if: success()
       run: |
-        if: success()  # Only run if previous steps were successful
         # Configure Git to use the GitHub token for authentication
         git config --global url."https://${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf "https://github.com/"
 
