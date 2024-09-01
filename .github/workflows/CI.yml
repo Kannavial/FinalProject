@@ -35,8 +35,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
 
-    name: Get Repository URL and Branch
-        run: |
+    - name: Get Repository URL and Branch
+      id: get_repo_info
+      run: |
           # Get PR info
           PR_NUMBER=${{ github.event.pull_request.number }}
           REPO_URL="https://github.com/${{ github.repository }}"
